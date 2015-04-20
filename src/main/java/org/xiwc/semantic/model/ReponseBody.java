@@ -1,4 +1,4 @@
-package org.xiwc.semantic;
+package org.xiwc.semantic.model;
 
 import java.io.Serializable;
 

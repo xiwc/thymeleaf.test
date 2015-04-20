@@ -1,4 +1,4 @@
-package org.xiwc.semantic;
+package org.xiwc.semantic.component;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.stream.Collectors;

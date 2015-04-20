@@ -1,6 +1,6 @@
 jQuery(document).ready(function($) {
 	$.fn.api.settings.api = {
-		'test' : '/dp/test?flg={/flg}'
+		'test' : 'dp/test?flg={/flg}'
 	};
 
 	$('.ui.checkbox').checkbox();
