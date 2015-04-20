@@ -1,0 +1,30 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8" />
+<title>Insert title here</title>
+<link rel="stylesheet" th:href="@{/lib/semantic/semantic.css}" href="../static/lib/semantic/semantic.css" />
+<link rel="stylesheet" th:href="@{/css/test.css}" href="../static/css/test.css" />
+<script th:src="@{/lib/jquery-1.11.2.js}" src="../static/lib/jquery-1.11.2.js"></script>
+<script th:src="@{/lib/semantic/semantic.js}" src="../static/lib/semantic/semantic.js"></script>
+<script th:src="@{/js/test.js}" src="../static/js/test.js"></script>
+</head>
+<body>
+
+	<p th:text="${#ctx}" />
+	<p th:text="${#locale}" />
+	<p th:text="${#httpServletRequest.contextPath}" />
+	<p th:text="${#httpSession}" />
+	<p th:text="${@jsonParser.parse(#ctx)}" />
+	<p th:text="${T(org.xiwc.semantic.util.JsonUtil).toJson(#locale)}" />
+	
+	<div class="ui divider"></div>
+	
+	<div class="ui toggle checkbox ts-flg">
+		<input type="checkbox" name="flg" /> <label>Flag</label>
+	</div>
+	<button class="ui button ts-search">Search</button>
+	
+</body>
+</html>
