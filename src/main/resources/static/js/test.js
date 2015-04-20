@@ -5,6 +5,7 @@ jQuery(document).ready(function($) {
 	};
 
 	$('.ui.checkbox').checkbox();
+	$('.ui.accordion').accordion();
 
 	$('.ts-search').api({
 		action : 'test',

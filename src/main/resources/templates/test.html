@@ -12,20 +12,26 @@
 <script th:src="@{/js/test.js}" src="../static/js/test.js"></script>
 </head>
 <body>
+	<div class="ui styled fluid accordion">
+		<div class="title">
+			<i class="dropdown icon"></i> Context Information
+		</div>
+		<div class="content">
+			<p th:text="${#ctx}" />
+			<p th:text="${#locale}" />
+			<p th:text="${#httpServletRequest.contextPath}" />
+			<p th:text="${#httpSession}" />
+			<p th:text="${@jsonParser.parse(#ctx)}" />
+			<p th:text="${T(org.xiwc.semantic.util.JsonUtil).toJson(#locale)}" />
+		</div>
+	</div>
 
-	<p th:text="${#ctx}" />
-	<p th:text="${#locale}" />
-	<p th:text="${#httpServletRequest.contextPath}" />
-	<p th:text="${#httpSession}" />
-	<p th:text="${@jsonParser.parse(#ctx)}" />
-	<p th:text="${T(org.xiwc.semantic.util.JsonUtil).toJson(#locale)}" />
-	
 	<div class="ui divider"></div>
-	
+
 	<div class="ui toggle checkbox ts-flg">
 		<input type="checkbox" name="flg" /> <label>Flag</label>
 	</div>
 	<button class="ui button ts-search">Search</button>
-	
+
 </body>
 </html>
