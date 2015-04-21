@@ -6,6 +6,9 @@ jQuery(document).ready(function($) {
 
 	$('.ui.checkbox').checkbox();
 	$('.ui.accordion').accordion();
+	$('.ts-clear-log').click(function(){
+		$('.ts-message ul').empty();
+	});
 
 	$('.ts-search').api({
 		action : 'test',
@@ -98,4 +101,14 @@ jQuery(document).ready(function($) {
 	});
 	
 	c.fire('test callbacks');
+});
+
+// override console.log function.
+
+var console = console || {};
+
+jQuery.extend(console, {
+	log:function(msg){
+		$('<li/>').text(msg).appendTo('.ts-message ul');
+	}
 });

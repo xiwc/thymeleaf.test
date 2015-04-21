@@ -12,6 +12,17 @@
 <script th:src="@{/js/test.js}" src="../static/js/test.js"></script>
 </head>
 <body>
+
+	<div class="ui segment">
+		<div class="ui toggle checkbox ts-flg">
+			<input type="checkbox" name="flg" /> <label>Flag</label>
+		</div>
+		<button class="ui button ts-search">Search</button>
+		<button class="ui button ts-clear-log">Clear Log</button>
+	</div>
+
+	<div class="ui divider"></div>
+
 	<div class="ui styled fluid accordion">
 		<div class="title">
 			<i class="dropdown icon"></i> Context Information
@@ -24,14 +35,19 @@
 			<p th:text="${@jsonParser.parse(#ctx)}" />
 			<p th:text="${T(org.xiwc.semantic.util.JsonUtil).toJson(#locale)}" />
 		</div>
+		<div class="active title">
+			<i class="dropdown icon"></i> Console Log Message
+		</div>
+		<div class="active content">
+			<div class="ui message ts-message">
+				<ul class="list">
+				</ul>
+			</div>
+		</div>
 	</div>
 
 	<div class="ui divider"></div>
 
-	<div class="ui toggle checkbox ts-flg">
-		<input type="checkbox" name="flg" /> <label>Flag</label>
-	</div>
-	<button class="ui button ts-search">Search</button>
 
 </body>
 </html>
