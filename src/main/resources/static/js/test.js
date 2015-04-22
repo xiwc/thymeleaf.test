@@ -1,3 +1,56 @@
+
+// file uploader
+jQuery(document).ready(function($) {
+	
+	$('#dropbox').hover(function(){
+//		$('.ts-upload').dimmer('show');
+	}, function(){
+//		$('.ts-upload').dimmer('hide');
+	});
+	
+	$("#dropbox, #multiple").html5Uploader({
+		name : "multiple",
+		postUrl : "page/upload",
+		onClientLoadStart : function(e, file) {
+			
+			$('.ts-upload .dimmer').dimmer('show').find('.text').text('Uploading...');
+			
+			var filter = /^(image\/bmp|image\/gif|image\/jpeg|image\/png|image\/tiff)$/i;
+			if (!filter.test(file.type)) {
+				//console.log('不是可识别的图片类型文件!');
+				return false;
+			}
+		},
+		onClientLoad : function(e, file) {
+		},
+		onServerLoadStart : function(e, file) {
+		},
+		onServerProgress : function(e, file) {
+			if (e.lengthComputable) {
+				var percentComplete = (e.loaded / e.total) * 100;
+				$('.ts-upload .dimmer').find('.text').text('Uploading... ' + percentComplete + '%');
+			}
+		},
+		onServerLoad : function(e, file) {
+			$('.ts-upload .dimmer').fadeOut(function(){
+				$('.ts-upload').dimmer('hide');
+			}).find('.text').text('Upload Success!');
+		},
+		onServerError : function(e, file) {
+			$('.ts-upload').dimmer('hide');
+		},
+		onSuccess : function(e, file, msg) {
+			var json = $.parseJSON(msg);
+			if (json.succeed) {
+				//$('.ui.progress > .bar').text('文件上传完毕!');
+			} else {
+				//$('.ui.progress > .bar').text(json.msg.detail);
+			}
+		}
+	});
+});
+
+
 jQuery(document).ready(function($) {
 	
 	$.fn.api.settings.api = {

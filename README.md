@@ -13,6 +13,7 @@ spring-boot (web+jpa+h2)
 >
 * jQuery.Deferred
 * jQuery.Callbacks
+* jQuery.html5Uploader
 
 ### semantic-ui features test
 >
@@ -29,3 +30,4 @@ spring-boot (web+jpa+h2)
 >
 * form validation
 * https://github.com/macek/jquery-serialize-object
+* enhance `jQuery.html5Uploader`

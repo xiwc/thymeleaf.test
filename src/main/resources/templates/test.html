@@ -10,6 +10,7 @@
 <script th:src="@{/lib/jquery-1.11.2.js}" src="../static/lib/jquery-1.11.2.js"></script>
 <script th:src="@{/lib/jquery.tablesort.js}" src="../static/lib/jquery.tablesort.js"></script>
 <script th:src="@{/lib/jquery.serialize-object.js}" src="../static/lib/jquery.serialize-object.js"></script>
+<script th:src="@{/lib/jquery.html5uploader.min.js}" src="../static/lib/jquery.html5uploader.min.js"></script>
 <script th:src="@{/lib/semantic/semantic.js}" src="../static/lib/semantic/semantic.js"></script>
 <script th:src="@{/js/test.js}" src="../static/js/test.js"></script>
 </head>
@@ -27,6 +28,18 @@
 	<div class="ui divider"></div>
 
 	<div class="ui styled fluid accordion">
+		<div class="active title">
+			<i class="dropdown icon"></i> Console Log Message
+		</div>
+		<div class="active content">
+			<div class="ui message ts-message">
+				<ul class="list">
+				</ul>
+			</div>
+		</div>
+	</div>
+
+	<div class="ui styled fluid accordion">
 		<div class="title">
 			<i class="dropdown icon"></i> Context Information
 		</div>
@@ -37,15 +50,6 @@
 			<p th:text="${#httpSession}" />
 			<p th:text="${@jsonParser.parse(#ctx)}" />
 			<p th:text="${T(org.xiwc.semantic.util.JsonUtil).toJson(#locale)}" />
-		</div>
-		<div class="active title">
-			<i class="dropdown icon"></i> Console Log Message
-		</div>
-		<div class="active content">
-			<div class="ui message ts-message">
-				<ul class="list">
-				</ul>
-			</div>
 		</div>
 		<div class="title">
 			<i class="dropdown icon"></i> Form Testing
@@ -103,50 +107,71 @@
 				</form>
 			</div>
 		</div>
+		<div class="active title">
+			<i class="dropdown icon"></i> File Uploader
+		</div>
+		<div class="active content">
+			<div class="ui segment">
+				<div class="ui segment ts-upload" id="dropbox" style="height: 200px; max-width: 260px; margin: auto;">
+					<div class="ui dimmer">
+						<div class="ui text loader">Uploading...</div>
+					</div>
+					<input style="display: none;" id="multiple" name="multiple" type="file" multiple>
+					<h2 class="ui center aligned icon header">
+						<i class="file outline icon"></i> 拖拽区域
+					</h2>
+				</div>
+			</div>
+		</div>
+		<div class="title">
+			<i class="dropdown icon"></i> Table Sort
+		</div>
+		<div class="content">
+			<div class="ui segment">
+				<table class="ui celled striped sortable table ts-table">
+					<thead>
+						<tr>
+							<th th:text="#{test.id}">ID</th>
+							<th th:text="#{test.first.last.name}">First Name/Last Name</th>
+							<th th:text="#{test.user.name}">User Name</th>
+							<th th:text="#{test.password}">Password</th>
+							<th th:text="#{test.age}">Age</th>
+							<th th:text="#{test.sex}">Sex</th>
+						</tr>
+					</thead>
+					<tbody th:remove="all-but-first">
+						<tr th:each="test : ${tests}" th:unless="${#lists.isEmpty(tests)}">
+							<td th:text="${test.id}" class="collapsing">1</td>
+							<td th:text="${test.firstName + ' ' + test.lastName}">zhang san</td>
+							<td th:text="${test.userName}">zhangsan</td>
+							<td th:text="${test.password}">zhangsan</td>
+							<td th:text="${test.age}" class="right aligned collapsing">30.0</td>
+							<td th:text="${test.sex} ? #{test.sex.male} : #{test.sex.female}" class="collapsing">Male</td>
+						</tr>
+						<tr>
+							<td class="collapsing">2</td>
+							<td>li si</td>
+							<td>lisi</td>
+							<td>lisi</td>
+							<td class="right aligned collapsing">28.0</td>
+							<td class="collapsing">Female</td>
+						</tr>
+						<tr>
+							<td class="collapsing">3</td>
+							<td>wang wu</td>
+							<td>wangwu</td>
+							<td>wangwu</td>
+							<td class="right aligned collapsing">34.0</td>
+							<td class="collapsing">Male</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+
 	</div>
 
 	<div class="ui divider"></div>
-
-	<div class="ui segment">
-		<table class="ui celled striped sortable table ts-table">
-			<thead>
-				<tr>
-					<th th:text="#{test.id}">ID</th>
-					<th th:text="#{test.first.last.name}">First Name/Last Name</th>
-					<th th:text="#{test.user.name}">User Name</th>
-					<th th:text="#{test.password}">Password</th>
-					<th th:text="#{test.age}">Age</th>
-					<th th:text="#{test.sex}">Sex</th>
-				</tr>
-			</thead>
-			<tbody th:remove="all-but-first">
-				<tr th:each="test : ${tests}" th:unless="${#lists.isEmpty(tests)}">
-					<td th:text="${test.id}" class="collapsing">1</td>
-					<td th:text="${test.firstName + ' ' + test.lastName}">zhang san</td>
-					<td th:text="${test.userName}">zhangsan</td>
-					<td th:text="${test.password}">zhangsan</td>
-					<td th:text="${test.age}" class="right aligned collapsing">30.0</td>
-					<td th:text="${test.sex} ? #{test.sex.male} : #{test.sex.female}" class="collapsing">Male</td>
-				</tr>
-				<tr>
-					<td class="collapsing">2</td>
-					<td>li si</td>
-					<td>lisi</td>
-					<td>lisi</td>
-					<td class="right aligned collapsing">28.0</td>
-					<td class="collapsing">Female</td>
-				</tr>
-				<tr>
-					<td class="collapsing">3</td>
-					<td>wang wu</td>
-					<td>wangwu</td>
-					<td>wangwu</td>
-					<td class="right aligned collapsing">34.0</td>
-					<td class="collapsing">Male</td>
-				</tr>
-			</tbody>
-		</table>
-	</div>
 
 </body>
 </html>
