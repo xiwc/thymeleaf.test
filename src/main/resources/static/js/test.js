@@ -9,6 +9,15 @@ jQuery(document).ready(function($) {
 	$('.ts-clear-log').click(function(){
 		$('.ts-message ul').empty();
 	});
+	$('.ts-list-all').click(function(){
+		$.get("dp/test").done(function(resp){
+			console.log(JSON.stringify(resp));
+		});
+	});
+	
+	$('.ts-submit').click(function(){
+		$('.ts-form').parents('form').submit();
+	});
 
 	$('.ts-search').api({
 		action : 'test',
