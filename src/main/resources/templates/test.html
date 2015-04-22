@@ -119,14 +119,30 @@
 					<th th:text="#{test.sex}">Sex</th>
 				</tr>
 			</thead>
-			<tbody>
+			<tbody th:remove="all-but-first">
 				<tr th:each="test : ${tests}" th:unless="${#lists.isEmpty(tests)}">
-					<td th:text="${test.id}" class="collapsing"></td>
-					<td th:text="${test.firstName + ' ' + test.lastName}"></td>
-					<td th:text="${test.userName}"></td>
-					<td th:text="${test.password}"></td>
-					<td th:text="${test.age}" class="right aligned collapsing"></td>
-					<td th:text="${test.sex} ? #{test.sex.male} : #{test.sex.female}" class="collapsing"></td>
+					<td th:text="${test.id}" class="collapsing">1</td>
+					<td th:text="${test.firstName + ' ' + test.lastName}">zhang san</td>
+					<td th:text="${test.userName}">zhangsan</td>
+					<td th:text="${test.password}">zhangsan</td>
+					<td th:text="${test.age}" class="right aligned collapsing">30.0</td>
+					<td th:text="${test.sex} ? #{test.sex.male} : #{test.sex.female}" class="collapsing">Male</td>
+				</tr>
+				<tr>
+					<td class="collapsing">2</td>
+					<td>li si</td>
+					<td>lisi</td>
+					<td>lisi</td>
+					<td class="right aligned collapsing">28.0</td>
+					<td class="collapsing">Female</td>
+				</tr>
+				<tr>
+					<td class="collapsing">3</td>
+					<td>wang wu</td>
+					<td>wangwu</td>
+					<td>wangwu</td>
+					<td class="right aligned collapsing">34.0</td>
+					<td class="collapsing">Male</td>
 				</tr>
 			</tbody>
 		</table>
