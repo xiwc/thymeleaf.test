@@ -23,8 +23,8 @@ public class Application {
 			@Override
 			public void run(String... arg0) throws Exception {
 				Stream.of(new Test("zhang", "san", "zhangsan", "zhangsan", true, 30D),
-						new Test("zhang", "san", "zhangsan", "zhangsan", true, 30D),
-						new Test("zhang", "san", "zhangsan", "zhangsan", true, 30D)).forEach(testRepository::save);
+						new Test("li", "si", "lisi", "lisi", false, 28D),
+						new Test("wang", "wu", "wangwu", "wangwu", true, 40D)).forEach(testRepository::save);
 			}
 		};
 	}

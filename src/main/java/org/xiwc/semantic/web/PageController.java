@@ -20,6 +20,7 @@ public class PageController {
 		testRepository.findAll().forEach(System.out::println);
 
 		modelMap.addAttribute("test", testRepository.findOne(1L));
+		modelMap.addAttribute("tests", testRepository.findAll());
 
 		return "test";
 	}
@@ -28,6 +29,7 @@ public class PageController {
 	String submit(Test test, ModelMap modelMap) {
 
 		modelMap.addAttribute("test", testRepository.save(test));
+		modelMap.addAttribute("tests", testRepository.findAll());
 
 		return "test";
 	}

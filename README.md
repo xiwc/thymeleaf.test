@@ -18,6 +18,7 @@ spring-boot (web+jpa+h2)
 >
 * ui form
 * api
+* table sort (https://github.com/kylefox/jquery-tablesort)
 
 ### spring web
 >
@@ -27,5 +28,4 @@ spring-boot (web+jpa+h2)
 # TODO
 >
 * form validation
-* https://github.com/kylefox/jquery-tablesort
 * https://github.com/macek/jquery-serialize-object

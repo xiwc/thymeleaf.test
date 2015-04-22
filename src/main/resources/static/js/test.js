@@ -5,10 +5,13 @@ jQuery(document).ready(function($) {
 	};
 
 	$('.ui.checkbox').checkbox();
+	
 	$('.ui.accordion').accordion();
+	
 	$('.ts-clear-log').click(function(){
 		$('.ts-message ul').empty();
 	});
+	
 	$('.ts-list-all').click(function(){
 		$.get("dp/test").done(function(resp){
 			console.log(JSON.stringify(resp));
@@ -18,6 +21,8 @@ jQuery(document).ready(function($) {
 	$('.ts-submit').click(function(){
 		$('.ts-form').parents('form').submit();
 	});
+	
+	$('.ts-table').tablesort();
 
 	$('.ts-search').api({
 		action : 'test',
@@ -59,7 +64,6 @@ jQuery(document).ready(function($) {
 	$.get("dp/test").done(function(resp){
 		console.log(JSON.stringify(resp));
 	});
-	
 	
 	var d = (function(){
 		

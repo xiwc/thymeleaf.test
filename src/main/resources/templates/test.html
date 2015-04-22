@@ -8,6 +8,8 @@
 <link rel="stylesheet" th:href="@{/lib/semantic/semantic.css}" href="../static/lib/semantic/semantic.css" />
 <link rel="stylesheet" th:href="@{/css/test.css}" href="../static/css/test.css" />
 <script th:src="@{/lib/jquery-1.11.2.js}" src="../static/lib/jquery-1.11.2.js"></script>
+<script th:src="@{/lib/jquery.tablesort.js}" src="../static/lib/jquery.tablesort.js"></script>
+<script th:src="@{/lib/jquery.serialize-object.js}" src="../static/lib/jquery.serialize-object.js"></script>
 <script th:src="@{/lib/semantic/semantic.js}" src="../static/lib/semantic/semantic.js"></script>
 <script th:src="@{/js/test.js}" src="../static/js/test.js"></script>
 </head>
@@ -45,62 +47,90 @@
 				</ul>
 			</div>
 		</div>
+		<div class="title">
+			<i class="dropdown icon"></i> Form Testing
+		</div>
+		<div class="content">
+			<div class="ui segment">
+				<form action="#" th:action="@{/page/submit}" th:object="${test}" method="post">
+					<div class="ui warning form segment ts-form">
+						<div class="ui warning message">
+							<div class="header">Could you check something!</div>
+							<ul class="list">
+								<li>You forgot your <b>first name</b></li>
+								<li>And also your <b>last name</b></li>
+							</ul>
+						</div>
+						<div class="two fields">
+							<div class="field">
+								<label>First Name</label> <input th:field="*{firstName}" placeholder="First Name" type="text">
+							</div>
+							<div class="field">
+								<label>Last Name</label> <input th:field="*{lastName}" placeholder="Last Name" type="text">
+							</div>
+						</div>
+						<div class="field">
+							<label>Age</label> <input th:field="*{age}" placeholder="Age" type="text">
+						</div>
+						<div class="grouped inline fields">
+							<div class="field">
+								<label>Gender</label>
+							</div>
+							<div class="field">
+								<div class="ui radio checkbox">
+									<input th:field="*{sex}" th:value="*{sex}" type="radio"> <label>男</label>
+								</div>
+							</div>
+							<div class="field">
+								<div class="ui radio checkbox">
+									<input th:field="*{sex}" th:value="*{not sex}" type="radio"> <label>女</label>
+								</div>
+							</div>
+						</div>
+						<div class="field">
+							<label>Username</label> <input th:field="*{userName}" placeholder="Username" type="text">
+						</div>
+						<div class="field">
+							<label>Password</label> <input th:field="*{password}" placeholder="Password" type="password">
+						</div>
+						<div class="inline field">
+							<div class="ui checkbox">
+								<input type="checkbox"> <label>I agree to the Terms and Conditions</label>
+							</div>
+						</div>
+						<div class="ui submit button ts-submit">Submit</div>
+					</div>
+				</form>
+			</div>
+		</div>
 	</div>
 
 	<div class="ui divider"></div>
 
 	<div class="ui segment">
-		<form action="#" th:action="@{/page/submit}" th:object="${test}" method="post">
-			<div class="ui warning form segment ts-form">
-				<div class="ui warning message">
-					<div class="header">Could you check something!</div>
-					<ul class="list">
-						<li>You forgot your <b>first name</b></li>
-						<li>And also your <b>last name</b></li>
-					</ul>
-				</div>
-				<div class="two fields">
-					<div class="field">
-						<label>First Name</label> <input th:field="*{firstName}" placeholder="First Name" type="text">
-					</div>
-					<div class="field">
-						<label>Last Name</label> <input th:field="*{lastName}" placeholder="Last Name" type="text">
-					</div>
-				</div>
-				<div class="field">
-					<label>Age</label> <input th:field="*{age}" placeholder="Age" type="text">
-				</div>
-				<div class="grouped inline fields">
-					<div class="field">
-						<label>Gender</label>
-					</div>
-					<div class="field">
-						<div class="ui radio checkbox">
-							<input th:field="*{sex}" th:value="*{sex}" type="radio"> <label>男</label>
-						</div>
-					</div>
-					<div class="field">
-						<div class="ui radio checkbox">
-							<input th:field="*{sex}" th:value="*{not sex}" type="radio"> <label>女</label>
-						</div>
-					</div>
-				</div>
-				<div class="field">
-					<label>Username</label> <input th:field="*{userName}" placeholder="Username" type="text">
-				</div>
-				<div class="field">
-					<label>Password</label> <input th:field="*{password}" placeholder="Password" type="password">
-				</div>
-				<div class="inline field">
-					<div class="ui checkbox">
-						<input type="checkbox"> <label>I agree to the Terms and Conditions</label>
-					</div>
-				</div>
-				<div class="ui submit button ts-submit">Submit</div>
-			</div>
-		</form>
+		<table class="ui celled striped sortable table ts-table">
+			<thead>
+				<tr>
+					<th th:text="#{test.id}">ID</th>
+					<th th:text="#{test.first.last.name}">First Name/Last Name</th>
+					<th th:text="#{test.user.name}">User Name</th>
+					<th th:text="#{test.password}">Password</th>
+					<th th:text="#{test.age}">Age</th>
+					<th th:text="#{test.sex}">Sex</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="test : ${tests}" th:unless="${#lists.isEmpty(tests)}">
+					<td th:text="${test.id}" class="collapsing"></td>
+					<td th:text="${test.firstName + ' ' + test.lastName}"></td>
+					<td th:text="${test.userName}"></td>
+					<td th:text="${test.password}"></td>
+					<td th:text="${test.age}" class="right aligned collapsing"></td>
+					<td th:text="${test.sex} ? #{test.sex.male} : #{test.sex.female}" class="collapsing"></td>
+				</tr>
+			</tbody>
+		</table>
 	</div>
-
 
 </body>
 </html>
