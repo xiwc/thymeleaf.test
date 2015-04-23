@@ -39,9 +39,9 @@ Html5(thymeleaf & semantic-ui & jQuery) + Spring(webMVC & jpa) testing.
 # TODO
 >
 * form validation
-* https://github.com/macek/jquery-serialize-object
+* api for form (https://github.com/macek/jquery-serialize-object)
 * enhance `jQuery.html5Uploader`
 * slide show for images
 * rich html text editor
 * message tooltip
-* 
+* chart
