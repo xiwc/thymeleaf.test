@@ -1,4 +1,77 @@
 
+// fancybox slide show test
+jQuery(document).ready(function($) {
+	
+	$('.fancybox').fancybox();
+	
+	// Button helper. Disable animations, hide close button, change title type and content
+	$('.fancybox-buttons').fancybox({
+		openEffect  : 'none',
+		closeEffect : 'none',
+
+		prevEffect : 'none',
+		nextEffect : 'none',
+
+		closeBtn  : false,
+
+		helpers : {
+			title : {
+				type : 'inside'
+			},
+			buttons	: {}
+		},
+
+		afterLoad : function() {
+			this.title = 'Image ' + (this.index + 1) + ' of ' + this.group.length + (this.title ? ' - ' + this.title : '');
+		}
+	});
+	
+	// Thumbnail helper. Disable animations, hide close button, arrows and slide to next gallery item if clicked
+	$('.fancybox-thumbs').fancybox({
+		prevEffect : 'none',
+		nextEffect : 'none',
+
+		closeBtn  : false,
+		arrows    : false,
+		nextClick : true,
+
+		helpers : {
+			thumbs : {
+				width  : 50,
+				height : 50
+			}
+		}
+	});
+
+});
+
+// toastr test
+jQuery(document).ready(function($) {
+	
+	toastr.options = {
+			  "closeButton": true,
+			  "debug": false,
+			  "newestOnTop": true,
+			  "progressBar": false,
+			  "positionClass": "toast-bottom-center",
+			  "preventDuplicates": false,
+			  "onclick": null,
+			  "showDuration": "300",
+			  "hideDuration": "1000",
+			  "timeOut": "5000",
+			  "extendedTimeOut": "1000",
+			  "showEasing": "swing",
+			  "hideEasing": "linear",
+			  "showMethod": "fadeIn",
+			  "hideMethod": "fadeOut"
+			};
+	
+	$('.ts-show-notification').click(function(){
+		// success info warning error
+		toastr['info']("msg...", "title");
+	});
+});
+
 // dropzone file uploader
 jQuery(document).ready(function($) {
 	Dropzone.options.myDropzone = {

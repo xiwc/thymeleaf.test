@@ -7,6 +7,8 @@ Html5(thymeleaf & semantic-ui & jQuery) + Spring(webMVC & jpa) testing.
 * html5 (http://www.w3school.com.cn/html5/)
 * thymeleaf (http://www.thymeleaf.org/documentation.html)
 * Dropzone file uploader (http://www.dropzonejs.com/)
+* toastr notification (http://codeseven.github.io/toastr/)
+* fancyBox slide show (http://fancyapps.com/fancybox/)
 
 ### Back-end
 >
@@ -39,3 +41,7 @@ Html5(thymeleaf & semantic-ui & jQuery) + Spring(webMVC & jpa) testing.
 * form validation
 * https://github.com/macek/jquery-serialize-object
 * enhance `jQuery.html5Uploader`
+* slide show for images
+* rich html text editor
+* message tooltip
+* 

@@ -8,12 +8,21 @@
 <link rel="stylesheet" th:href="@{/lib/semantic/semantic.css}" href="../static/lib/semantic/semantic.css" />
 <link rel="stylesheet" th:href="@{/lib/dropzone/dropzone.css}" href="../static/lib/dropzone/dropzone.css" />
 <link rel="stylesheet" th:href="@{/lib/dropzone/basic.css}" href="../static/lib/dropzone/basic.css" />
+<link rel="stylesheet" th:href="@{/lib/toastr/toastr.css}" href="../static/lib/toastr/toastr.css" />
+<link rel="stylesheet" th:href="@{/lib/fancybox/jquery.fancybox.css}" href="../static/lib/fancybox/jquery.fancybox.css" />
+<link rel="stylesheet" th:href="@{/lib/fancybox/helpers/jquery.fancybox-buttons.css}" href="../static/lib/fancybox/helpers/jquery.fancybox-buttons.css" />
+<link rel="stylesheet" th:href="@{/lib/fancybox/helpers/jquery.fancybox-thumbs.css}" href="../static/lib/fancybox/helpers/jquery.fancybox-thumbs.css" />
 <link rel="stylesheet" th:href="@{/css/test.css}" href="../static/css/test.css" />
 <script th:src="@{/lib/jquery-1.11.2.js}" src="../static/lib/jquery-1.11.2.js"></script>
 <script th:src="@{/lib/jquery.tablesort.js}" src="../static/lib/jquery.tablesort.js"></script>
 <script th:src="@{/lib/jquery.serialize-object.js}" src="../static/lib/jquery.serialize-object.js"></script>
 <script th:src="@{/lib/jquery.html5uploader.js}" src="../static/lib/jquery.html5uploader.js"></script>
 <script th:src="@{/lib/dropzone/dropzone.js}" src="../static/lib/dropzone/dropzone.js"></script>
+<script th:src="@{/lib/toastr/toastr.js}" src="../static/lib/toastr/toastr.js"></script>
+<script th:src="@{/lib/fancybox/jquery.fancybox.js}" src="../static/lib/fancybox/jquery.fancybox.js"></script>
+<script th:src="@{/lib/fancybox/helpers/jquery.fancybox-buttons.js}" src="../static/lib/fancybox/helpers/jquery.fancybox-buttons.js"></script>
+<script th:src="@{/lib/fancybox/helpers/jquery.fancybox-thumbs.js}" src="../static/lib/fancybox/helpers/jquery.fancybox-thumbs.js"></script>
+<script th:src="@{/lib/fancybox/helpers/jquery.fancybox-media.js}" src="../static/lib/fancybox/helpers/jquery.fancybox-media.js"></script>
 <script th:src="@{/lib/semantic/semantic.js}" src="../static/lib/semantic/semantic.js"></script>
 <script th:src="@{/js/test.js}" src="../static/js/test.js"></script>
 </head>
@@ -26,6 +35,7 @@
 		<button class="ui button ts-search">Search</button>
 		<button class="ui button ts-list-all">List All</button>
 		<button class="ui button ts-clear-log">Clear Log</button>
+		<button class="ui button ts-show-notification">Show Notification</button>
 	</div>
 
 	<div class="ui divider"></div>
@@ -43,6 +53,32 @@
 	</div>
 
 	<div class="ui styled fluid accordion">
+		<div class="active title">
+			<i class="dropdown icon"></i> FancyBox Slide Show
+		</div>
+		<div class="active content">
+			<h3>Simple image gallery</h3>
+			<p>
+				<a class="fancybox" href="img/img01_b.jpg" data-fancybox-group="gallery" title="Lorem ipsum dolor sit amet"><img src="img/img01.jpg" alt="" /></a>
+				<a class="fancybox" href="img/img02_b.jpg" data-fancybox-group="gallery" title="Etiam quis mi eu elit temp"><img src="img/img02.jpg" alt="" /></a>
+				<a class="fancybox" href="img/img03_b.jpg" data-fancybox-group="gallery" title="Cras neque mi, semper leon"><img src="img/img03.jpg" alt="" /></a>
+				<a class="fancybox" href="img/img04_b.jpg" data-fancybox-group="gallery" title="Sed vel sapien vel sem uno"><img src="img/img04.jpg" alt="" /></a>
+			</p>
+			<h3>Button helper</h3>
+			<p>
+				<a class="fancybox-buttons" href="img/img01_b.jpg" data-fancybox-group="button" title="Lorem ipsum dolor sit amet"><img src="img/img01.jpg" alt="" /></a>
+				<a class="fancybox-buttons" href="img/img02_b.jpg" data-fancybox-group="button" title="Etiam quis mi eu elit temp"><img src="img/img02.jpg" alt="" /></a>
+				<a class="fancybox-buttons" href="img/img03_b.jpg" data-fancybox-group="button" title="Cras neque mi, semper leon"><img src="img/img03.jpg" alt="" /></a>
+				<a class="fancybox-buttons" href="img/img04_b.jpg" data-fancybox-group="button" title="Sed vel sapien vel sem uno"><img src="img/img04.jpg" alt="" /></a>
+			</p>
+			<h3>Thumbnail helper</h3>
+			<p>
+				<a class="fancybox-thumbs" href="img/img01_b.jpg" data-fancybox-group="thumb" title="Lorem ipsum dolor sit amet"><img src="img/img01.jpg" alt="" /></a>
+				<a class="fancybox-thumbs" href="img/img02_b.jpg" data-fancybox-group="thumb" title="Etiam quis mi eu elit temp"><img src="img/img02.jpg" alt="" /></a>
+				<a class="fancybox-thumbs" href="img/img03_b.jpg" data-fancybox-group="thumb" title="Cras neque mi, semper leon"><img src="img/img03.jpg" alt="" /></a>
+				<a class="fancybox-thumbs" href="img/img04_b.jpg" data-fancybox-group="thumb" title="Sed vel sapien vel sem uno"><img src="img/img04.jpg" alt="" /></a>
+			</p>
+		</div>
 		<div class="title">
 			<i class="dropdown icon"></i> Context Information
 		</div>
