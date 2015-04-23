@@ -1,12 +1,24 @@
 
-// file uploader
+// dropzone file uploader
+jQuery(document).ready(function($) {
+	Dropzone.options.myDropzone = {
+			  paramName: "multiple", // The name that will be used to transfer the file
+			  maxFilesize: 50 // MB
+	};
+});
+
+// html5 file uploader
 jQuery(document).ready(function($) {
 	
-	$('#dropbox').hover(function(){
-//		$('.ts-upload').dimmer('show');
-	}, function(){
-//		$('.ts-upload').dimmer('hide');
-	});
+	$('.ts-upload').bind("dragenter dragover", function(){
+		$('.ts-upload .dimmer').dimmer('show').find('.text').text('Drop to Upload');
+	}).bind("dragleave", function () {
+		$('.ts-upload .dimmer').dimmer({
+			duration: {
+				  hide : 500
+				}
+			}).dimmer('hide');
+    });
 	
 	$("#dropbox, #multiple").html5Uploader({
 		name : "multiple",
@@ -15,42 +27,50 @@ jQuery(document).ready(function($) {
 			
 			$('.ts-upload .dimmer').dimmer('show').find('.text').text('Uploading...');
 			
-			var filter = /^(image\/bmp|image\/gif|image\/jpeg|image\/png|image\/tiff)$/i;
-			if (!filter.test(file.type)) {
-				//console.log('不是可识别的图片类型文件!');
-				return false;
-			}
-		},
-		onClientLoad : function(e, file) {
-		},
-		onServerLoadStart : function(e, file) {
+//			var filter = /^(image\/bmp|image\/gif|image\/jpeg|image\/png|image\/tiff)$/i;
+//			if (!filter.test(file.type)) {
+//				e.preventDefault();
+//				e.stopPropagation();
+//				$('.ts-upload .dimmer').dimmer({
+//					duration: {
+//						  hide : 3000
+//						}
+//					}).dimmer('hide').find('.text').text('Unsupport file type');
+//			}
 		},
 		onServerProgress : function(e, file) {
 			if (e.lengthComputable) {
-				var percentComplete = (e.loaded / e.total) * 100;
-				$('.ts-upload .dimmer').find('.text').text('Uploading... ' + percentComplete + '%');
+				var percentComplete = parseInt((e.loaded / e.total) * 100);
+				$('.ts-upload .dimmer').find('.text').html('Uploading...</br></br>Finished: ' + percentComplete + '%');
 			}
 		},
-		onServerLoad : function(e, file) {
-			$('.ts-upload .dimmer').fadeOut(function(){
-				$('.ts-upload').dimmer('hide');
-			}).find('.text').text('Upload Success!');
-		},
 		onServerError : function(e, file) {
-			$('.ts-upload').dimmer('hide');
+			$('.ts-upload').dimmer({
+				duration: {
+					  hide : 3000
+					}
+				}).dimmer('hide');
 		},
 		onSuccess : function(e, file, msg) {
-			var json = $.parseJSON(msg);
-			if (json.succeed) {
-				//$('.ui.progress > .bar').text('文件上传完毕!');
+			var resp = $.parseJSON(msg);
+			if (resp.success) {
+				$('.ts-upload .dimmer').dimmer({
+					duration: {
+						  hide : 3000
+						}
+					}).dimmer('hide').find('.text').text('Upload Success!');
 			} else {
-				//$('.ui.progress > .bar').text(json.msg.detail);
+				$('.ts-upload .dimmer').dimmer({
+					duration: {
+						  hide : 3000
+						}
+					}).dimmer('hide').find('.text').text(resp.message);
 			}
 		}
 	});
 });
 
-
+// semantic-ui test
 jQuery(document).ready(function($) {
 	
 	$.fn.api.settings.api = {
@@ -112,6 +132,7 @@ jQuery(document).ready(function($) {
 	});
 });
 
+// jQuery Deferred & Callbacks test
 jQuery(document).ready(function($) {
 	
 	$.get("dp/test").done(function(resp){

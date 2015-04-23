@@ -1,1 +1,17 @@
-@CHARSET "ISO-8859-1";
+@CHARSET "utf-8";
+
+#dropzone {
+	max-width: 446px;
+	margin: auto;
+}
+
+.dropzone {
+	border: 2px dashed #0087F7;
+	border-radius: 5px;
+	background: white;
+}
+
+.dropzone .dz-message {
+	font-weight: 400;
+	font-size: x-large;
+}

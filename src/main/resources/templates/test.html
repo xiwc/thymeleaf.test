@@ -6,11 +6,14 @@
 <base th:href="@{/}" href="" />
 <title>Test</title>
 <link rel="stylesheet" th:href="@{/lib/semantic/semantic.css}" href="../static/lib/semantic/semantic.css" />
+<link rel="stylesheet" th:href="@{/lib/dropzone/dropzone.css}" href="../static/lib/dropzone/dropzone.css" />
+<link rel="stylesheet" th:href="@{/lib/dropzone/basic.css}" href="../static/lib/dropzone/basic.css" />
 <link rel="stylesheet" th:href="@{/css/test.css}" href="../static/css/test.css" />
 <script th:src="@{/lib/jquery-1.11.2.js}" src="../static/lib/jquery-1.11.2.js"></script>
 <script th:src="@{/lib/jquery.tablesort.js}" src="../static/lib/jquery.tablesort.js"></script>
 <script th:src="@{/lib/jquery.serialize-object.js}" src="../static/lib/jquery.serialize-object.js"></script>
-<script th:src="@{/lib/jquery.html5uploader.min.js}" src="../static/lib/jquery.html5uploader.min.js"></script>
+<script th:src="@{/lib/jquery.html5uploader.js}" src="../static/lib/jquery.html5uploader.js"></script>
+<script th:src="@{/lib/dropzone/dropzone.js}" src="../static/lib/dropzone/dropzone.js"></script>
 <script th:src="@{/lib/semantic/semantic.js}" src="../static/lib/semantic/semantic.js"></script>
 <script th:src="@{/js/test.js}" src="../static/js/test.js"></script>
 </head>
@@ -107,12 +110,14 @@
 				</form>
 			</div>
 		</div>
-		<div class="active title">
-			<i class="dropdown icon"></i> File Uploader
+		<div class="title">
+			<i class="dropdown icon"></i> Html5 File Uploader
 		</div>
-		<div class="active content">
+		<div class=" content">
 			<div class="ui segment">
-				<div class="ui segment ts-upload" id="dropbox" style="height: 200px; max-width: 260px; margin: auto;">
+				<div class="ui segment ts-upload" id="dropbox"
+					style="height: 200px; max-width: 260px; margin: auto; border-style: dashed;">
+
 					<div class="ui dimmer">
 						<div class="ui text loader">Uploading...</div>
 					</div>
@@ -120,6 +125,18 @@
 					<h2 class="ui center aligned icon header">
 						<i class="file outline icon"></i> 拖拽区域
 					</h2>
+				</div>
+			</div>
+		</div>
+		<div class="active title">
+			<i class="dropdown icon"></i> Dropzone File Uploader
+		</div>
+		<div class="active content">
+			<div class="ui segment">
+				<div id="dropzone">
+					<form action="page/upload" class="dropzone" id="my-dropzone">
+						<div class="dz-message">Drop files here or click to upload.</div>
+					</form>
 				</div>
 			</div>
 		</div>
