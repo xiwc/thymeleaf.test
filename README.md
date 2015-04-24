@@ -48,4 +48,4 @@ Html5(thymeleaf & semantic-ui & jQuery) + Spring(webMVC & jpa) testing.
 * slide show for images
 * rich html text editor
 * message tooltip
-* chart
+* chart highcharts (http://www.hcharts.cn/index.php) (http://www.highcharts.com/)
