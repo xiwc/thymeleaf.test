@@ -12,6 +12,9 @@
 <link rel="stylesheet" th:href="@{/lib/fancybox/jquery.fancybox.css}" href="../static/lib/fancybox/jquery.fancybox.css" />
 <link rel="stylesheet" th:href="@{/lib/fancybox/helpers/jquery.fancybox-buttons.css}" href="../static/lib/fancybox/helpers/jquery.fancybox-buttons.css" />
 <link rel="stylesheet" th:href="@{/lib/fancybox/helpers/jquery.fancybox-thumbs.css}" href="../static/lib/fancybox/helpers/jquery.fancybox-thumbs.css" />
+<link rel="stylesheet" th:href="@{/lib/wangeditor/css/wangEditor-1.3.css}" href="../static/lib/wangeditor/css/wangEditor-1.3.css" />
+<link rel="stylesheet" th:href="@{/lib/awesome/css/font-awesome.css}" href="../static/lib/awesome/css/font-awesome.css" />
+<link rel="stylesheet" th:href="@{/lib/wysiwyg/wysiwyg-editor.css}" href="../static/lib/wysiwyg/wysiwyg-editor.css" />
 <link rel="stylesheet" th:href="@{/css/test.css}" href="../static/css/test.css" />
 <script th:src="@{/lib/jquery-1.11.2.js}" src="../static/lib/jquery-1.11.2.js"></script>
 <script th:src="@{/lib/jquery.tablesort.js}" src="../static/lib/jquery.tablesort.js"></script>
@@ -23,6 +26,9 @@
 <script th:src="@{/lib/fancybox/helpers/jquery.fancybox-buttons.js}" src="../static/lib/fancybox/helpers/jquery.fancybox-buttons.js"></script>
 <script th:src="@{/lib/fancybox/helpers/jquery.fancybox-thumbs.js}" src="../static/lib/fancybox/helpers/jquery.fancybox-thumbs.js"></script>
 <script th:src="@{/lib/fancybox/helpers/jquery.fancybox-media.js}" src="../static/lib/fancybox/helpers/jquery.fancybox-media.js"></script>
+<script th:src="@{/lib/wangeditor/js/wangEditor-1.3.js}" src="../static/lib/wangeditor/js/wangEditor-1.3.js"></script>
+<script th:src="@{/lib/wysiwyg/wysiwyg-editor.min.js}" src="../static/lib/wysiwyg/wysiwyg-editor.min.js"></script>
+<script th:src="@{/lib/jquery.iframe-transport.js}" src="../static/lib/jquery.iframe-transport.js"></script>
 <script th:src="@{/lib/semantic/semantic.js}" src="../static/lib/semantic/semantic.js"></script>
 <script th:src="@{/js/test.js}" src="../static/js/test.js"></script>
 </head>
@@ -53,6 +59,18 @@
 	</div>
 
 	<div class="ui styled fluid accordion">
+		<div class="active title">
+			<i class="dropdown icon"></i> Wysiwyg Editor
+		</div>
+		<div class="active content">
+			<textarea id="ts-textarea-wysiwyg" style="width: 100%; height: 300px;"></textarea>
+		</div>
+		<div class="active title">
+			<i class="dropdown icon"></i> Wang Editor
+		</div>
+		<div class="active content">
+			<textarea id="ts-textarea-wang" style="width: 100%; height: 300px;"></textarea>
+		</div>
 		<div class="active title">
 			<i class="dropdown icon"></i> FancyBox Slide Show
 		</div>

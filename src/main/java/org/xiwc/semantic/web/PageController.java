@@ -51,6 +51,6 @@ public class PageController {
 			HttpServletResponse response, Model model, Locale locale,
 			@RequestParam("multiple") MultipartFile file) {
 
-		return new RespBody(true);
+		return new RespBody(true, "img/img01.jpg");
 	}
 }

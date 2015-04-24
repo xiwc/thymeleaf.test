@@ -9,6 +9,10 @@ Html5(thymeleaf & semantic-ui & jQuery) + Spring(webMVC & jpa) testing.
 * Dropzone file uploader (http://www.dropzonejs.com/)
 * toastr notification (http://codeseven.github.io/toastr/)
 * fancyBox slide show (http://fancyapps.com/fancybox/)
+* wangEditor (https://github.com/wangfupeng1988/wangEditor)
+* wysiwyg.js editor (http://wysiwygjs.github.io/)
+* async iframe upload file (http://cmlenz.github.io/jquery-iframe-transport/)
+* Font-Awesome (http://fortawesome.github.io/Font-Awesome/)
 
 ### Back-end
 >
