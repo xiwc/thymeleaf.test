@@ -5,6 +5,8 @@ import java.util.Locale;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,10 +19,13 @@ import org.springframework.web.multipart.MultipartFile;
 import org.xiwc.semantic.entity.Test;
 import org.xiwc.semantic.entity.TestRepository;
 import org.xiwc.semantic.model.RespBody;
+import org.xiwc.semantic.util.WebUtil;
 
 @Controller
 @RequestMapping("page")
 public class PageController {
+
+	static Logger logger = LoggerFactory.getLogger(PageController.class);
 
 	@Autowired
 	TestRepository testRepository;
@@ -50,6 +55,10 @@ public class PageController {
 	public RespBody upload(HttpServletRequest request,
 			HttpServletResponse response, Model model, Locale locale,
 			@RequestParam("multiple") MultipartFile file) {
+
+		logger.debug("upload file start...");
+
+		String ctxRealPath = WebUtil.getRealPath(request);
 
 		return new RespBody(true, "img/img01.jpg");
 	}
