@@ -42,6 +42,8 @@ public class PageController {
 	@RequestMapping("test")
 	String test(ModelMap modelMap) {
 
+		logger.debug("test page.");
+
 		testRepository.findAll().forEach(System.out::println);
 
 		modelMap.addAttribute("test", testRepository.findOne(1L));
@@ -61,8 +63,7 @@ public class PageController {
 
 	@RequestMapping(value = "upload", method = RequestMethod.POST)
 	@ResponseBody
-	public RespBody upload(HttpServletRequest request,
-			HttpServletResponse response, Model model, Locale locale,
+	public RespBody upload(HttpServletRequest request, HttpServletResponse response, Model model, Locale locale,
 			@RequestParam("multiple") MultipartFile file) {
 
 		logger.debug("upload file start...");
@@ -79,19 +80,14 @@ public class PageController {
 			return RespBody.failed("上传文件不是图片！");
 		}
 
-		String type = originalFilename.substring(originalFilename
-				.lastIndexOf("."));
+		String type = originalFilename.substring(originalFilename.lastIndexOf("."));
 
-		String fileName = StringUtil.replace("{?1}{?2}", UUID.randomUUID(),
-				type);
+		String fileName = StringUtil.replace("{?1}{?2}", UUID.randomUUID(), type);
 
 		String storePath = env.getProperty("test.upload.img.store.path");
-		int sizeOriginal = env.getProperty(
-				"test.upload.img.scale.size.original", Integer.class);
-		int sizeLarge = env.getProperty("test.upload.img.scale.size.large",
-				Integer.class);
-		int sizeHuge = env.getProperty("test.upload.img.scale.size.huge",
-				Integer.class);
+		int sizeOriginal = env.getProperty("test.upload.img.scale.size.original", Integer.class);
+		int sizeLarge = env.getProperty("test.upload.img.scale.size.large", Integer.class);
+		int sizeHuge = env.getProperty("test.upload.img.scale.size.huge", Integer.class);
 
 		// relative file path
 		String path = storePath + sizeOriginal + "/" + fileName;// 原始图片存放
@@ -113,11 +109,9 @@ public class PageController {
 
 			// scale image size as thumbnail
 			// 图片缩放处理.120*120
-			ImageUtil.scale2(filePath, realPath + pathLarge, sizeLarge,
-					sizeLarge, true);
+			ImageUtil.scale2(filePath, realPath + pathLarge, sizeLarge, sizeLarge, true);
 			// 图片缩放处理.640*640
-			ImageUtil.scale2(filePath, realPath + pathHuge, sizeHuge, sizeHuge,
-					true);
+			ImageUtil.scale2(filePath, realPath + pathHuge, sizeHuge, sizeHuge, true);
 
 			// 保存记录到数据库
 			// TODO

@@ -40,6 +40,8 @@ Html5(thymeleaf & semantic-ui & jQuery) + Spring(webMVC & jpa) testing.
 >
 * ModelMap
 * jpa
+* hot reload java class (https://github.com/spring-projects/spring-loaded)
+  cmd: java -javaagent:C:/Users/weichx/.m2/repository/org/springframework/springloaded/1.2.3.RELEASE/springloaded-1.2.3.RELEASE.jar -noverify SomeJavaClass
 
 
 ### deploy to tomcat server
@@ -66,6 +68,7 @@ int conf/tomcat-users.xml
 		<username>test</username>
 		<password>test</password>
 		<path>/</path>
+		<update>true</update>
 	</configuration>
 </plugin>
 -------------------
