@@ -42,6 +42,12 @@ Html5(thymeleaf & semantic-ui & jQuery) + Spring(webMVC & jpa) testing.
 * jpa
 * hot reload java class (https://github.com/spring-projects/spring-loaded)
   cmd: java -javaagent:C:/Users/weichx/.m2/repository/org/springframework/springloaded/1.2.3.RELEASE/springloaded-1.2.3.RELEASE.jar -noverify SomeJavaClass
+* maven (http://maven.apache.org/pom.html)
+
+### automation build
+>
+1. clean webapp/upload
+2. include external web resources when packaging
 
 
 ### deploy to tomcat server
