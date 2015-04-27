@@ -299,7 +299,7 @@ jQuery(document).ready(function($) {
             }
         },
         onImageUpload: function(insert_image) {
-            var $form = $(this).attr('name', 'multiple').parents('form').attr('action', 'http://localhost:9000/page/upload').attr('method', 'POST').attr('enctype', 'multipart/form-data');
+            var $form = $(this).attr('name', 'multiple').parents('form').attr('action', 'page/upload').attr('method', 'POST').attr('enctype', 'multipart/form-data');
             $.ajax($form.prop('action'), {
                 //data: form.find('textarea').serializeArray(),
                 dataType: 'json',
@@ -310,7 +310,7 @@ jQuery(document).ready(function($) {
                 //form.removeClass('loading');
             }).done(function(resp) {
                 console.log(JSON.stringify(resp));
-                insert_image(resp.message);
+                insert_image(resp.data);
                 $form.find(':file').val('');
             });
         },
@@ -468,7 +468,7 @@ jQuery(document).ready(function($) {
                     duration: {
                         hide: 3000
                     }
-                }).dimmer('hide').find('.text').text(resp.message);
+                }).dimmer('hide').find('.text').text(resp.data);
             }
         }
     });
