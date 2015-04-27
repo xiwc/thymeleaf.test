@@ -40,6 +40,38 @@ Html5(thymeleaf & semantic-ui & jQuery) + Spring(webMVC & jpa) testing.
 * ModelMap
 * jpa
 
+
+### deploy to tomcat server
+>
+* remote deploy
+	1. tomcat manager app users(int conf/tomcat-users.xml) (http://tomcat.apache.org/tomcat-8.0-doc/manager-howto.html)
+	2. tomcat7-maven-plugin(in pom.xml) 
+ 		* configuration (http://tomcat.apache.org/maven-plugin-2.2/tomcat7-maven-plugin/usage.html)
+ 		* Goals available for this plugin (http://tomcat.apache.org/maven-plugin-2.2/tomcat7-maven-plugin/plugin-info.html)
+* core config
+```
+int conf/tomcat-users.xml
+<role rolename="manager-gui"/>
+<role rolename="manager-script"/>
+<user username="test" password="test" roles="manager-gui,manager-script"/>
+-------------------
+(in pom.xml)
+<plugin>
+	<groupId>org.apache.tomcat.maven</groupId>
+	<artifactId>tomcat7-maven-plugin</artifactId>
+	<version>2.2</version>
+	<configuration>
+		<url>http://localhost:80/manager/text</url>
+		<username>test</username>
+		<password>test</password>
+		<path>/</path>
+	</configuration>
+</plugin>
+-------------------
+(deploy exec cmd)
+tomcat7:deploy
+```
+
 # TODO
 >
 * form validation

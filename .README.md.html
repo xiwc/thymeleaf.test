@@ -690,6 +690,42 @@ function setDocumentScrollTop(ypos)
   <li>jpa</li> 
  </ul> 
 </blockquote> 
+<h3> <a id="user-content-deploy-to-tomcat-server" class="anchor" href="#deploy-to-tomcat-server" aria-hidden="true"><span class="octicon octicon-link"></span></a>deploy to tomcat server</h3> 
+<blockquote> 
+ <ul> 
+  <li>remote deploy 
+   <ol> 
+    <li>tomcat manager app users(int conf/tomcat-users.xml) (<a href="http://tomcat.apache.org/tomcat-8.0-doc/manager-howto.html">http://tomcat.apache.org/tomcat-8.0-doc/manager-howto.html</a>)</li> 
+    <li>tomcat7-maven-plugin(in pom.xml) 
+     <ul> 
+      <li>configuration (<a href="http://tomcat.apache.org/maven-plugin-2.2/tomcat7-maven-plugin/usage.html">http://tomcat.apache.org/maven-plugin-2.2/tomcat7-maven-plugin/usage.html</a>)</li> 
+      <li>Goals available for this plugin (<a href="http://tomcat.apache.org/maven-plugin-2.2/tomcat7-maven-plugin/plugin-info.html">http://tomcat.apache.org/maven-plugin-2.2/tomcat7-maven-plugin/plugin-info.html</a>)</li> 
+     </ul> </li> 
+   </ol> </li> 
+  <li>core config</li> 
+ </ul> 
+ <pre><code>int conf/tomcat-users.xml
+&lt;role rolename=&quot;manager-gui&quot;/&gt;
+&lt;role rolename=&quot;manager-script&quot;/&gt;
+&lt;user username=&quot;test&quot; password=&quot;test&quot; roles=&quot;manager-gui,manager-script&quot;/&gt;
+-------------------
+(in pom.xml)
+&lt;plugin&gt;
+    &lt;groupId&gt;org.apache.tomcat.maven&lt;/groupId&gt;
+    &lt;artifactId&gt;tomcat7-maven-plugin&lt;/artifactId&gt;
+    &lt;version&gt;2.2&lt;/version&gt;
+    &lt;configuration&gt;
+        &lt;url&gt;http://localhost:80/manager/text&lt;/url&gt;
+        &lt;username&gt;test&lt;/username&gt;
+        &lt;password&gt;test&lt;/password&gt;
+        &lt;path&gt;/&lt;/path&gt;
+    &lt;/configuration&gt;
+&lt;/plugin&gt;
+-------------------
+(deploy exec cmd)
+tomcat7:deploy
+</code></pre> 
+</blockquote> 
 <h1> <a id="user-content-todo" class="anchor" href="#todo" aria-hidden="true"><span class="octicon octicon-link"></span></a>TODO</h1> 
 <blockquote> 
  <ul> 
