@@ -93,3 +93,4 @@ tomcat7:deploy
 * rich html text editor
 * message tooltip
 * chart highcharts (http://www.hcharts.cn/index.php) (http://www.highcharts.com/)
+* save spring-boot metric info into database.
