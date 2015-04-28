@@ -35,6 +35,7 @@ Html5(thymeleaf & semantic-ui & jQuery) + Spring(webMVC & jpa) testing.
 * ui form
 * api
 * table sort (https://github.com/kylefox/jquery-tablesort)
+* radioButtion `th:field value == th:value` set checked attribute
 
 ### spring web
 >
