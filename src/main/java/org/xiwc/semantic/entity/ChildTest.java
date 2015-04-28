@@ -1,16 +1,14 @@
 package org.xiwc.semantic.entity;
 
 import java.io.Serializable;
-import java.util.Set;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.NamedQuery;
-import javax.persistence.OneToMany;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 
@@ -18,8 +16,8 @@ import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.NotBlank;
 
 @Entity
-@NamedQuery(name = "Test.listAll", query = "select t from Test t")
-public class Test implements Serializable {
+@NamedQuery(name = "ChildTest.listAll", query = "select c from ChildTest c")
+public class ChildTest implements Serializable {
 
 	/** serialVersionUID long */
 	private static final long serialVersionUID = -3935713828083820001L;
@@ -39,14 +37,14 @@ public class Test implements Serializable {
 	@Max(200)
 	public Double age;
 
-	@OneToMany(mappedBy = "test", cascade = { CascadeType.PERSIST }, fetch = FetchType.LAZY)
-	private Set<ChildTest> childTests;
+	@ManyToOne(fetch = FetchType.EAGER)
+	private Test test;
 
-	public Test() {
+	public ChildTest() {
 		super();
 	}
 
-	public Test(String firstName, String lastName, String userName, String password, Sex sex, Double age) {
+	public ChildTest(String firstName, String lastName, String userName, String password, Sex sex, Double age) {
 		super();
 		this.firstName = firstName;
 		this.lastName = lastName;
@@ -112,12 +110,12 @@ public class Test implements Serializable {
 		this.password = password;
 	}
 
-	public Set<ChildTest> getChildTests() {
-		return childTests;
+	public Test getTest() {
+		return test;
 	}
 
-	public void setChildTests(Set<ChildTest> childTests) {
-		this.childTests = childTests;
+	public void setTest(Test test) {
+		this.test = test;
 	}
 
 	@Override
@@ -125,5 +123,4 @@ public class Test implements Serializable {
 		return "Test [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", userName=" + userName
 				+ ", password=" + password + ", sex=" + sex + ", age=" + age + "]";
 	}
-
 }
