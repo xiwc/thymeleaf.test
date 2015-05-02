@@ -6,9 +6,9 @@ $(document).ready(function() {
 });
 
 // ckeditor test
-$( document ).ready( function() {
-	$( '#ts-textarea-ckeditor' ).ckeditor();
-} );
+$(document).ready(function() {
+	$('#ts-textarea-ckeditor').ckeditor();
+});
 
 // wysiwyg Editor test
 jQuery(document).ready(function($) {
