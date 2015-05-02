@@ -13,6 +13,7 @@ Html5(thymeleaf & semantic-ui & jQuery) + Spring(webMVC & jpa) testing.
 * wysiwyg.js editor (http://wysiwygjs.github.io/)
 * async iframe upload file (http://cmlenz.github.io/jquery-iframe-transport/)
 * Font-Awesome (http://fortawesome.github.io/Font-Awesome/)
+* CKEditor (http://ckeditor.com/)
 
 ### Back-end
 >

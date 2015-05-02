@@ -1,3 +1,9 @@
+// ckeditor test
+$( document ).ready( function() {
+	$( '#ts-textarea-ckeditor' ).ckeditor();
+} );
+
+
 // wysiwyg Editor test
 jQuery(document).ready(function($) {
     var index = 0;

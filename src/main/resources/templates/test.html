@@ -29,6 +29,8 @@
 <script th:src="@{/lib/wangeditor/js/wangEditor-1.3.js}" src="../static/lib/wangeditor/js/wangEditor-1.3.js"></script>
 <script th:src="@{/lib/wysiwyg/wysiwyg-editor.min.js}" src="../static/lib/wysiwyg/wysiwyg-editor.min.js"></script>
 <script th:src="@{/lib/jquery.iframe-transport.js}" src="../static/lib/jquery.iframe-transport.js"></script>
+<script th:src="@{/lib/ckeditor/ckeditor.js}" src="../static/lib/ckeditor/ckeditor.js"></script>
+<script th:src="@{/lib/ckeditor/adapters/jquery.js}" src="../static/lib/ckeditor/adapters/jquery.js"></script>
 <script th:src="@{/lib/semantic/semantic.js}" src="../static/lib/semantic/semantic.js"></script>
 <script th:src="@{/js/test.js}" src="../static/js/test.js"></script>
 </head>
@@ -59,6 +61,12 @@
 	</div>
 
 	<div class="ui styled fluid accordion">
+		<div class="active title">
+			<i class="dropdown icon"></i> CKEditor
+		</div>
+		<div class="active content">
+			<textarea id="ts-textarea-ckeditor" style="width: 100%; height: 300px;"></textarea>
+		</div>
 		<div class="active title">
 			<i class="dropdown icon"></i> Wysiwyg Editor
 		</div>
