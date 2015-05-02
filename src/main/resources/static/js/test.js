@@ -1,8 +1,14 @@
+// bootstrap-markdown test
+$(document).ready(function() {
+	$("#ts-textarea-markdown").markdown({
+		language:'zh'
+	});
+});
+
 // ckeditor test
 $( document ).ready( function() {
 	$( '#ts-textarea-ckeditor' ).ckeditor();
 } );
-
 
 // wysiwyg Editor test
 jQuery(document).ready(function($) {

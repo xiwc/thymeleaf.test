@@ -14,6 +14,11 @@ Html5(thymeleaf & semantic-ui & jQuery) + Spring(webMVC & jpa) testing.
 * async iframe upload file (http://cmlenz.github.io/jquery-iframe-transport/)
 * Font-Awesome (http://fortawesome.github.io/Font-Awesome/)
 * CKEditor (http://ckeditor.com/)
+* bootstrap (http://getbootstrap.com/)
+* bootstrap-markdown (https://github.com/toopay/bootstrap-markdown)
+* bootstrap-markdown-doc (http://www.codingdrama.com/bootstrap-markdown/)
+* jquery.hotkeys (https://github.com/jeresig/jquery.hotkeys)
+* markdown-js (https://github.com/evilstreak/markdown-js)
 
 ### Back-end
 >
