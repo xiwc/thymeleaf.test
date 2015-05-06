@@ -47,7 +47,8 @@ public class SecurityConfig {
 		@Override
 		protected void configure(HttpSecurity http) throws Exception {
 
-			http.authorizeRequests().anyRequest().authenticated().and().formLogin().and().httpBasic().and().logout();
+			http.authorizeRequests().anyRequest().authenticated().and().formLogin().and().httpBasic().and().logout()
+					.and().rememberMe().key("test").tokenValiditySeconds(3600 * 24 * 7);
 		}
 	}
 
