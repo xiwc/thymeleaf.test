@@ -27,6 +27,7 @@ Html5(thymeleaf & semantic-ui & jQuery) + Spring(webMVC & jpa) testing.
 * spring-boot (http://projects.spring.io/spring-boot/)
 * spring-data-jpa (http://projects.spring.io/spring-data-jpa/)
 * implement the image file upload store
+* spring security used tables entities
 
 ### jquery features test
 >
