@@ -36,6 +36,7 @@ public interface TestRepository extends JpaRepository<Test, Long> {
 	List<Test> findAllByCustomQuery(String userName);
 
 	// @NamedQuery(name = "Test.listAll", query = "select t from Test t")
+	@Query
 	List<Test> listAll();
 
 	@Modifying(clearAutomatically = true)
