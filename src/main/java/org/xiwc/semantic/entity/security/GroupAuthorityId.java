@@ -11,6 +11,8 @@ import javax.persistence.Embeddable;
 @Embeddable
 public class GroupAuthorityId implements java.io.Serializable {
 
+	/** serialVersionUID long */
+	private static final long serialVersionUID = -7564608728716685119L;
 	private long groupId;
 	private String authority;
 

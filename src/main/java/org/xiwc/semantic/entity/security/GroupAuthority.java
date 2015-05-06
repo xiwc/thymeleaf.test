@@ -19,6 +19,8 @@ import javax.persistence.Table;
 @Table(name = "group_authorities")
 public class GroupAuthority implements java.io.Serializable {
 
+	/** serialVersionUID long */
+	private static final long serialVersionUID = -8028884450384610029L;
 	private GroupAuthorityId id;
 	private Group group;
 

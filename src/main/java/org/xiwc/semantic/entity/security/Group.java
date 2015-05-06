@@ -2,13 +2,15 @@ package org.xiwc.semantic.entity.security;
 // default package
 // Generated May 6, 2015 11:39:38 AM by Hibernate Tools 4.3.1
 
+import static javax.persistence.GenerationType.IDENTITY;
+
 import java.util.HashSet;
 import java.util.Set;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
-import static javax.persistence.GenerationType.IDENTITY;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
@@ -20,6 +22,8 @@ import javax.persistence.Table;
 @Table(name = "groups")
 public class Group implements java.io.Serializable {
 
+	/** serialVersionUID long */
+	private static final long serialVersionUID = 3805010763422813183L;
 	private Long id;
 	private String groupName;
 	private Set<GroupMember> groupMembers = new HashSet<GroupMember>(0);
