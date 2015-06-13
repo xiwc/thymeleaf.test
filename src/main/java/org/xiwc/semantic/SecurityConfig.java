@@ -35,24 +35,28 @@ public class SecurityConfig {
 	}
 
 	@Autowired
-	public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
+	public void configureGlobal(AuthenticationManagerBuilder auth)
+			throws Exception {
 
-		auth.jdbcAuthentication().dataSource(dataSource).passwordEncoder(bCryptPasswordEncoderBean());
+		auth.jdbcAuthentication().dataSource(dataSource)
+				.passwordEncoder(bCryptPasswordEncoderBean());
 	}
 
 	@Configuration
 	@Order(1)
-	public static class SecurityConfiguration extends WebSecurityConfigurerAdapter {
+	public static class SecurityConfiguration extends
+			WebSecurityConfigurerAdapter {
 
 		@Override
 		protected void configure(HttpSecurity http) throws Exception {
 
-			// http.authorizeRequests().anyRequest().authenticated().and().formLogin().and().httpBasic().and().logout()
-			// .and().rememberMe().key("test").tokenValiditySeconds(3600 * 24 *
-			// 7);
+			http.authorizeRequests().anyRequest().authenticated().and()
+					.formLogin().and().httpBasic().and().logout().and()
+					.rememberMe().key("test")
+					.tokenValiditySeconds(3600 * 24 * 7);
 
-			http.authorizeRequests().anyRequest().permitAll().and().csrf()
-					.disable();
+			// http.authorizeRequests().anyRequest().permitAll().and().csrf()
+			// .disable().headers().disable();
 		}
 	}
 

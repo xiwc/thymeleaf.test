@@ -6,8 +6,6 @@ import java.util.stream.Stream;
 
 import javax.transaction.Transactional;
 
-import org.junit.Test;
-import org.junit.runner.RunWith;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,20 +14,19 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.test.annotation.Rollback;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.test.context.testng.AbstractTestNGSpringContextTests;
 import org.xiwc.semantic.Application;
 
-@RunWith(SpringJUnit4ClassRunner.class)
 @SpringApplicationConfiguration(classes = Application.class)
 // @WebAppConfiguration
-public class TestRepositoryTest {
+public class TestRepositoryTest extends AbstractTestNGSpringContextTests {
 
 	static Logger logger = LoggerFactory.getLogger(TestRepositoryTest.class);
 
 	@Autowired
 	TestRepository repo;
 
-	@Test
+	@org.testng.annotations.Test
 	@Transactional
 	@Rollback
 	public void testSave() {
@@ -52,7 +49,7 @@ public class TestRepositoryTest {
 
 	}
 
-	@Test
+	@org.testng.annotations.Test
 	@Transactional
 	@Rollback
 	public void testUpdate() {
@@ -63,7 +60,7 @@ public class TestRepositoryTest {
 
 	}
 
-	@Test
+	@org.testng.annotations.Test
 	public void testQuery() {
 
 		repo.findAll().forEach(System.out::println);
