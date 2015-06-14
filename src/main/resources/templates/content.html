@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorator="layout">
+<head>
+<title>Content</title>
+<link rel="stylesheet" th:href="@{/lib/semantic/semantic.css}" href="../static/lib/semantic/semantic.css" />
+<script th:src="@{/js/content-script.js}" src="../static/content-script.js"></script>
+<script th:src="@{/lib/jquery-1.11.2.js}" src="../static/lib/jquery-1.11.2.js"></script>
+<script th:src="@{/lib/semantic/semantic.js}" src="../static/lib/semantic/semantic.js"></script>
+</head>
+<body>
+	<header>
+		<h1>My website(content)[not show]</h1>
+	</header>
+	<section layout:fragment="content">
+		<p>This is a paragraph from content page(content)</p>
+	</section>
+	<footer>
+		<p>My footer(content)[not show]</p>
+		<p layout:fragment="custom-footer">This is some footer content from content page(content)</p>
+	</footer>
+</body>
+</html>

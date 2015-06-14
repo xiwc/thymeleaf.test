@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+<title layout:title-pattern="$DECORATOR_TITLE - $CONTENT_TITLE">Layout</title>
+<script th:src="@{/js/common-script.js}" src="../static/common-script.js"></script>
+</head>
+<body>
+	<header>
+		<h1>My website(layout)</h1>
+	</header>
+	<section layout:fragment="content">
+		<p>Page content goes here(layout)</p>
+	</section>
+	<footer>
+		<p>My footer(layout)</p>
+		<p layout:fragment="custom-footer">Custom footer here(layout)</p>
+	</footer>
+</body>
+</html>

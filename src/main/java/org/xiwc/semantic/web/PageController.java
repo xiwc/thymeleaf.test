@@ -52,6 +52,14 @@ public class PageController {
 		return "test";
 	}
 
+	@RequestMapping("layout")
+	String layout(ModelMap modelMap) {
+
+		logger.debug("layout page.");
+
+		return "content";
+	}
+
 	@RequestMapping("submit")
 	String submit(Test test, ModelMap modelMap) {
 
