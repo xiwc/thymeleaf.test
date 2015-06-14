@@ -15,5 +15,10 @@ public class StreamTest {
 		reduce = Stream.of(new String[] { "1", "2" }).collect(
 				Collectors.joining(","));
 		System.out.println(reduce);
+
+		String replaceAll = "C:\\ddfd\\dfdfdff\\etetr.txt".replaceAll("\\\\",
+				"/");
+
+		System.out.println(replaceAll);
 	}
 }
