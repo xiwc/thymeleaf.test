@@ -10,6 +10,7 @@ import javax.mail.MessagingException;
 import javax.mail.internet.MimeMessage;
 import javax.mail.internet.MimeUtility;
 
+import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.SpringApplicationConfiguration;
 import org.springframework.core.io.ByteArrayResource;
@@ -20,6 +21,7 @@ import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSenderImpl;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.test.context.testng.AbstractTestNGSpringContextTests;
+import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import org.thymeleaf.TemplateEngine;
@@ -152,5 +154,11 @@ public class MailSenderTest extends AbstractTestNGSpringContextTests {
 		helper.addInline("imageResourceName", imageSource, "image/jpg");
 
 		sender.send(mimeMessage);
+	}
+
+	@Test
+	public void test() {
+		StringUtils.capitalize("aBccCdd");
+		Assert.assertNotNull(mailSender);
 	}
 }
