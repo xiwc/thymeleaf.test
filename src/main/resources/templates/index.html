@@ -14,5 +14,16 @@
 <body>
 	<h1 class="ui header">Index page</h1>
 	<a th:href="@{/page/test}" href="test.html">Test Page</a>
+	<a th:href="@{/page/test?name=测试}">测试</a>
+	<a th:href="@{page/test?name=测试}">测试</a>
+	<a th:href="@{~/page/test?name=测试}">测试</a>
+	<a th:href="@{//code.jquery.com/jquery-2.0.3.min.js}">测试</a>
+	<p>Age: <span th:text="${age}?: '(no age specified)'">27</span></p>
+	<p>Age: <span th:unless="${person == null}" th:text="${persion.age}?: '(no age specified)'">27</span></p>
+	<div><hr/><h3>application</h3><pre th:text="${@debug.toJson(application)}"></pre></div>
+	<div><hr/><h3>session</h3><pre th:text="${@debug.toJson(session)}"></pre></div>
+	<div><hr/><h3>param</h3><pre th:text="${@debug.toJson(param)}"></pre></div>
+	<div><hr/><h3>#httpSession</h3><pre th:text="${@debug.toJson(#httpSession)}"></pre></div>
+	<div><hr/><h3>#httpServletRequest</h3><pre th:text="${@debug.toJson(#httpServletRequest)}"></pre></div>
 </body>
 </html>
