@@ -50,13 +50,13 @@ public class SecurityConfig {
 		@Override
 		protected void configure(HttpSecurity http) throws Exception {
 
-			http.authorizeRequests().anyRequest().authenticated().and()
-					.formLogin().and().httpBasic().and().logout().and()
-					.rememberMe().key("test")
-					.tokenValiditySeconds(3600 * 24 * 7);
+			// http.authorizeRequests().anyRequest().authenticated().and()
+			// .formLogin().and().httpBasic().and().logout().and()
+			// .rememberMe().key("test")
+			// .tokenValiditySeconds(3600 * 24 * 7);
 
-			// http.authorizeRequests().anyRequest().permitAll().and().csrf()
-			// .disable().headers().disable();
+			http.authorizeRequests().anyRequest().permitAll().and().csrf()
+					.disable().headers().disable();
 		}
 	}
 
