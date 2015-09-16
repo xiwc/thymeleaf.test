@@ -15,6 +15,7 @@ import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -22,8 +23,10 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.xiwc.semantic.entity.Test;
 import org.xiwc.semantic.entity.TestRepository;
+import org.xiwc.semantic.model.JsonParam;
 import org.xiwc.semantic.model.RespBody;
 import org.xiwc.semantic.util.ImageUtil;
+import org.xiwc.semantic.util.JsonUtil;
 import org.xiwc.semantic.util.StringUtil;
 import org.xiwc.semantic.util.WebUtil;
 
@@ -58,6 +61,24 @@ public class PageController {
 		logger.debug("layout page.");
 
 		return "content";
+	}
+
+	@RequestMapping("json")
+	String json(ModelMap modelMap) {
+
+		logger.debug("layout page.");
+
+		return "json";
+	}
+
+	@RequestMapping(value = "parseJson", method = { RequestMethod.POST })
+	@ResponseBody
+	Object parseJson(@RequestBody JsonParam json, String name) {
+
+		System.out.println(JsonUtil.toJson(json));
+		System.out.println(name);
+
+		return json;
 	}
 
 	@RequestMapping("submit")
